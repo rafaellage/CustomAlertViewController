@@ -25,6 +25,21 @@
 		E5C3B2BF1E5CFF90009D633F /* TwoButtonsPineAlertTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3B2B81E5CFF90009D633F /* TwoButtonsPineAlertTableViewCell.m */; };
 		E5C3B2C51E5D05F8009D633F /* CustomAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3B2C41E5D05F8009D633F /* CustomAlertViewController.m */; };
 		E5C3B2C81E5D307A009D633F /* RoundedBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3B2C71E5D307A009D633F /* RoundedBorderButton.m */; };
+		E5C3B2D01E5D95F4009D633F /* CustomAlertBody.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3B2CF1E5D95F4009D633F /* CustomAlertBody.m */; };
+		E5C3B2D31E5DB4FA009D633F /* CustomAlertSimpleBodyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3B2D21E5DB4FA009D633F /* CustomAlertSimpleBodyTableViewCell.m */; };
+		E5C3B2E31E5DB5B7009D633F /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = E5C3B2D61E5DB5B7009D633F /* LICENSE.txt */; };
+		E5C3B2E41E5DB5B7009D633F /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C3B2D71E5DB5B7009D633F /* Roboto-Black.ttf */; };
+		E5C3B2E51E5DB5B7009D633F /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C3B2D81E5DB5B7009D633F /* Roboto-BlackItalic.ttf */; };
+		E5C3B2E61E5DB5B7009D633F /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C3B2D91E5DB5B7009D633F /* Roboto-Bold.ttf */; };
+		E5C3B2E71E5DB5B7009D633F /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C3B2DA1E5DB5B7009D633F /* Roboto-BoldItalic.ttf */; };
+		E5C3B2E81E5DB5B7009D633F /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C3B2DB1E5DB5B7009D633F /* Roboto-Italic.ttf */; };
+		E5C3B2E91E5DB5B7009D633F /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C3B2DC1E5DB5B7009D633F /* Roboto-Light.ttf */; };
+		E5C3B2EA1E5DB5B7009D633F /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C3B2DD1E5DB5B7009D633F /* Roboto-LightItalic.ttf */; };
+		E5C3B2EB1E5DB5B7009D633F /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C3B2DE1E5DB5B7009D633F /* Roboto-Medium.ttf */; };
+		E5C3B2EC1E5DB5B7009D633F /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C3B2DF1E5DB5B7009D633F /* Roboto-MediumItalic.ttf */; };
+		E5C3B2ED1E5DB5B7009D633F /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C3B2E01E5DB5B7009D633F /* Roboto-Regular.ttf */; };
+		E5C3B2EE1E5DB5B7009D633F /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C3B2E11E5DB5B7009D633F /* Roboto-Thin.ttf */; };
+		E5C3B2EF1E5DB5B7009D633F /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C3B2E21E5DB5B7009D633F /* Roboto-ThinItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +95,23 @@
 		E5C3B2C41E5D05F8009D633F /* CustomAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertViewController.m; sourceTree = "<group>"; };
 		E5C3B2C61E5D307A009D633F /* RoundedBorderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedBorderButton.h; sourceTree = "<group>"; };
 		E5C3B2C71E5D307A009D633F /* RoundedBorderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedBorderButton.m; sourceTree = "<group>"; };
+		E5C3B2CE1E5D95F4009D633F /* CustomAlertBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertBody.h; sourceTree = "<group>"; };
+		E5C3B2CF1E5D95F4009D633F /* CustomAlertBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertBody.m; sourceTree = "<group>"; };
+		E5C3B2D11E5DB4FA009D633F /* CustomAlertSimpleBodyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertSimpleBodyTableViewCell.h; sourceTree = "<group>"; };
+		E5C3B2D21E5DB4FA009D633F /* CustomAlertSimpleBodyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertSimpleBodyTableViewCell.m; sourceTree = "<group>"; };
+		E5C3B2D61E5DB5B7009D633F /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = Fonts/Roboto/LICENSE.txt; sourceTree = "<group>"; };
+		E5C3B2D71E5DB5B7009D633F /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Black.ttf"; path = "Fonts/Roboto/Roboto-Black.ttf"; sourceTree = "<group>"; };
+		E5C3B2D81E5DB5B7009D633F /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-BlackItalic.ttf"; path = "Fonts/Roboto/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		E5C3B2D91E5DB5B7009D633F /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "Fonts/Roboto/Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		E5C3B2DA1E5DB5B7009D633F /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-BoldItalic.ttf"; path = "Fonts/Roboto/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		E5C3B2DB1E5DB5B7009D633F /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Italic.ttf"; path = "Fonts/Roboto/Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		E5C3B2DC1E5DB5B7009D633F /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Light.ttf"; path = "Fonts/Roboto/Roboto-Light.ttf"; sourceTree = "<group>"; };
+		E5C3B2DD1E5DB5B7009D633F /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-LightItalic.ttf"; path = "Fonts/Roboto/Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		E5C3B2DE1E5DB5B7009D633F /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "Fonts/Roboto/Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		E5C3B2DF1E5DB5B7009D633F /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-MediumItalic.ttf"; path = "Fonts/Roboto/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		E5C3B2E01E5DB5B7009D633F /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "Fonts/Roboto/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		E5C3B2E11E5DB5B7009D633F /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Thin.ttf"; path = "Fonts/Roboto/Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		E5C3B2E21E5DB5B7009D633F /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-ThinItalic.ttf"; path = "Fonts/Roboto/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,12 +202,8 @@
 		E5C3B29F1E5CFD93009D633F /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				E5C3B2C61E5D307A009D633F /* RoundedBorderButton.h */,
-				E5C3B2C71E5D307A009D633F /* RoundedBorderButton.m */,
-				E5C3B2A01E5CFDBB009D633F /* RoundedBorderView.h */,
-				E5C3B2A11E5CFDBB009D633F /* RoundedBorderView.m */,
-				E5C3B2A21E5CFDBB009D633F /* UIColor+Extensions.h */,
-				E5C3B2A31E5CFDBB009D633F /* UIColor+Extensions.m */,
+				E5C3B2CD1E5D954C009D633F /* Extensions */,
+				E5C3B2CC1E5D953B009D633F /* CustomViews */,
 			);
 			name = Commons;
 			sourceTree = "<group>";
@@ -193,6 +221,7 @@
 		E5C3B2A71E5CFE0A009D633F /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E5C3B2D41E5DB5A4009D633F /* Fonts */,
 				E5C3B2781E5CFD5B009D633F /* Assets.xcassets */,
 			);
 			name = Assets;
@@ -220,20 +249,96 @@
 			isa = PBXGroup;
 			children = (
 				E5C3B2B01E5CFF90009D633F /* CustomAlerts.storyboard */,
-				E5C3B2AC1E5CFF90009D633F /* BaseCustomAlertViewController.h */,
-				E5C3B2AD1E5CFF90009D633F /* BaseCustomAlertViewController.m */,
-				E5C3B2AE1E5CFF90009D633F /* CustomAlertAction.h */,
-				E5C3B2AF1E5CFF90009D633F /* CustomAlertAction.m */,
-				E5C3B2B31E5CFF90009D633F /* CustomBaseAlertViewModel.h */,
-				E5C3B2B41E5CFF90009D633F /* CustomBaseAlertViewModel.m */,
+				E5C3B2CA1E5D94D9009D633F /* Controller */,
+				E5C3B2CB1E5D94FB009D633F /* Model */,
+				E5C3B2C91E5D94A8009D633F /* Cell */,
+			);
+			name = CustomAlert;
+			sourceTree = "<group>";
+		};
+		E5C3B2C91E5D94A8009D633F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
 				E5C3B2B51E5CFF90009D633F /* SingleButtonCustomAlertTableViewCell.h */,
 				E5C3B2B61E5CFF90009D633F /* SingleButtonCustomAlertTableViewCell.m */,
 				E5C3B2B71E5CFF90009D633F /* TwoButtonsCustomAlertTableViewCell.h */,
 				E5C3B2B81E5CFF90009D633F /* TwoButtonsPineAlertTableViewCell.m */,
+				E5C3B2D11E5DB4FA009D633F /* CustomAlertSimpleBodyTableViewCell.h */,
+				E5C3B2D21E5DB4FA009D633F /* CustomAlertSimpleBodyTableViewCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		E5C3B2CA1E5D94D9009D633F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E5C3B2AC1E5CFF90009D633F /* BaseCustomAlertViewController.h */,
+				E5C3B2AD1E5CFF90009D633F /* BaseCustomAlertViewController.m */,
 				E5C3B2C31E5D05F8009D633F /* CustomAlertViewController.h */,
 				E5C3B2C41E5D05F8009D633F /* CustomAlertViewController.m */,
 			);
-			name = CustomAlert;
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E5C3B2CB1E5D94FB009D633F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E5C3B2AE1E5CFF90009D633F /* CustomAlertAction.h */,
+				E5C3B2AF1E5CFF90009D633F /* CustomAlertAction.m */,
+				E5C3B2B31E5CFF90009D633F /* CustomBaseAlertViewModel.h */,
+				E5C3B2B41E5CFF90009D633F /* CustomBaseAlertViewModel.m */,
+				E5C3B2CE1E5D95F4009D633F /* CustomAlertBody.h */,
+				E5C3B2CF1E5D95F4009D633F /* CustomAlertBody.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E5C3B2CC1E5D953B009D633F /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				E5C3B2C61E5D307A009D633F /* RoundedBorderButton.h */,
+				E5C3B2C71E5D307A009D633F /* RoundedBorderButton.m */,
+				E5C3B2A01E5CFDBB009D633F /* RoundedBorderView.h */,
+				E5C3B2A11E5CFDBB009D633F /* RoundedBorderView.m */,
+			);
+			name = CustomViews;
+			sourceTree = "<group>";
+		};
+		E5C3B2CD1E5D954C009D633F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E5C3B2A21E5CFDBB009D633F /* UIColor+Extensions.h */,
+				E5C3B2A31E5CFDBB009D633F /* UIColor+Extensions.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		E5C3B2D41E5DB5A4009D633F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E5C3B2D51E5DB5AA009D633F /* Roboto */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		E5C3B2D51E5DB5AA009D633F /* Roboto */ = {
+			isa = PBXGroup;
+			children = (
+				E5C3B2D61E5DB5B7009D633F /* LICENSE.txt */,
+				E5C3B2D71E5DB5B7009D633F /* Roboto-Black.ttf */,
+				E5C3B2D81E5DB5B7009D633F /* Roboto-BlackItalic.ttf */,
+				E5C3B2D91E5DB5B7009D633F /* Roboto-Bold.ttf */,
+				E5C3B2DA1E5DB5B7009D633F /* Roboto-BoldItalic.ttf */,
+				E5C3B2DB1E5DB5B7009D633F /* Roboto-Italic.ttf */,
+				E5C3B2DC1E5DB5B7009D633F /* Roboto-Light.ttf */,
+				E5C3B2DD1E5DB5B7009D633F /* Roboto-LightItalic.ttf */,
+				E5C3B2DE1E5DB5B7009D633F /* Roboto-Medium.ttf */,
+				E5C3B2DF1E5DB5B7009D633F /* Roboto-MediumItalic.ttf */,
+				E5C3B2E01E5DB5B7009D633F /* Roboto-Regular.ttf */,
+				E5C3B2E11E5DB5B7009D633F /* Roboto-Thin.ttf */,
+				E5C3B2E21E5DB5B7009D633F /* Roboto-ThinItalic.ttf */,
+			);
+			name = Roboto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,10 +450,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5C3B2EE1E5DB5B7009D633F /* Roboto-Thin.ttf in Resources */,
+				E5C3B2EB1E5DB5B7009D633F /* Roboto-Medium.ttf in Resources */,
+				E5C3B2E71E5DB5B7009D633F /* Roboto-BoldItalic.ttf in Resources */,
 				E5C3B27C1E5CFD5B009D633F /* LaunchScreen.storyboard in Resources */,
+				E5C3B2EA1E5DB5B7009D633F /* Roboto-LightItalic.ttf in Resources */,
+				E5C3B2EC1E5DB5B7009D633F /* Roboto-MediumItalic.ttf in Resources */,
 				E5C3B2791E5CFD5B009D633F /* Assets.xcassets in Resources */,
+				E5C3B2E91E5DB5B7009D633F /* Roboto-Light.ttf in Resources */,
 				E5C3B2771E5CFD5B009D633F /* Main.storyboard in Resources */,
+				E5C3B2E51E5DB5B7009D633F /* Roboto-BlackItalic.ttf in Resources */,
+				E5C3B2EF1E5DB5B7009D633F /* Roboto-ThinItalic.ttf in Resources */,
+				E5C3B2E31E5DB5B7009D633F /* LICENSE.txt in Resources */,
 				E5C3B2BB1E5CFF90009D633F /* CustomAlerts.storyboard in Resources */,
+				E5C3B2E81E5DB5B7009D633F /* Roboto-Italic.ttf in Resources */,
+				E5C3B2ED1E5DB5B7009D633F /* Roboto-Regular.ttf in Resources */,
+				E5C3B2E61E5DB5B7009D633F /* Roboto-Bold.ttf in Resources */,
+				E5C3B2E41E5DB5B7009D633F /* Roboto-Black.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,9 +496,11 @@
 				E5C3B2B91E5CFF90009D633F /* BaseCustomAlertViewController.m in Sources */,
 				E5C3B2BA1E5CFF90009D633F /* CustomAlertAction.m in Sources */,
 				E5C3B2BF1E5CFF90009D633F /* TwoButtonsPineAlertTableViewCell.m in Sources */,
+				E5C3B2D31E5DB4FA009D633F /* CustomAlertSimpleBodyTableViewCell.m in Sources */,
 				E5C3B2711E5CFD5B009D633F /* AppDelegate.m in Sources */,
 				E5C3B2C51E5D05F8009D633F /* CustomAlertViewController.m in Sources */,
 				E5C3B2C81E5D307A009D633F /* RoundedBorderButton.m in Sources */,
+				E5C3B2D01E5D95F4009D633F /* CustomAlertBody.m in Sources */,
 				E5C3B2BD1E5CFF90009D633F /* CustomBaseAlertViewModel.m in Sources */,
 				E5C3B26E1E5CFD5B009D633F /* main.m in Sources */,
 				E5C3B2A51E5CFDBB009D633F /* UIColor+Extensions.m in Sources */,

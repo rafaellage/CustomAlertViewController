@@ -11,11 +11,16 @@
 @implementation CustomBaseAlertViewModel
 
 #pragma mark - Initialization
++ (instancetype)initWithImage:(UIImage *)image {
+    CustomBaseAlertViewModel *customBaseAlertViewModel = [CustomBaseAlertViewModel new];
+    customBaseAlertViewModel.image = image;
+    return customBaseAlertViewModel;
+}
+
 + (instancetype)initWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message{
     CustomBaseAlertViewModel *customBaseAlertViewModel = [CustomBaseAlertViewModel new];
     customBaseAlertViewModel.image = image;
-    customBaseAlertViewModel.title = title;
-    customBaseAlertViewModel.message = message;
+    [customBaseAlertViewModel addBody:[CustomAlertBody bodyWithTitle:title message:message]];
     return customBaseAlertViewModel;
 }
 
@@ -26,6 +31,14 @@
     }
     
     [self.actions addObject:action];
+}
+
+- (void)addBody:(CustomAlertBody *)body {
+    if(self.bodyArray == nil){
+        self.bodyArray = [NSMutableArray<CustomAlertBody *> new];
+    }
+    
+    [self.bodyArray addObject:body];
 }
 
 @end

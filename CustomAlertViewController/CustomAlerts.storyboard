@@ -55,7 +55,7 @@
                                 <blurEffect style="dark"/>
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yfj-Jm-Ib1" userLabel="AlertView Container" customClass="RoundedBorderView">
-                                <rect key="frame" x="22" y="196" width="331" height="275.5"/>
+                                <rect key="frame" x="22" y="145" width="331" height="378"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="516-eA-qIa">
                                         <rect key="frame" x="146" y="20" width="38" height="38"/>
@@ -64,27 +64,50 @@
                                             <constraint firstAttribute="width" constant="38" id="u0o-0I-gWQ"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITV-ka-L0p" userLabel="Title Label">
-                                        <rect key="frame" x="20" y="63" width="291" height="23.5"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Message Message Message Message Message Message Message Message Message Message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7s-Uk-ep2" userLabel="Message Label">
-                                        <rect key="frame" x="20" y="91.5" width="291" height="49"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="117" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WaB-UR-dKK" userLabel="Buttons Table View">
-                                        <rect key="frame" x="0.0" y="145.5" width="331" height="120"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="117" sectionHeaderHeight="15" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="WaB-UR-dKK" userLabel="Content Table View">
+                                        <rect key="frame" x="0.0" y="68" width="331" height="300"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="UNI-DR-JhS"/>
+                                            <constraint firstAttribute="height" constant="300" id="UNI-DR-JhS"/>
                                         </constraints>
                                         <prototypes>
+                                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CustomAlertSimpleBodyTableViewCell" rowHeight="108" id="YcQ-wu-m0O" userLabel="CustomAlertSimpleBodyTableViewCell" customClass="CustomAlertSimpleBodyTableViewCell">
+                                                <rect key="frame" x="0.0" y="15" width="331" height="108"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YcQ-wu-m0O" id="Pm9-Ql-Net">
+                                                    <rect key="frame" x="0.0" y="0.0" width="331" height="108"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITV-ka-L0p" userLabel="Title Label">
+                                                            <rect key="frame" x="5" y="5" width="321" height="23.5"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Message Message Message Message Message Message Message Message Message Message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7s-Uk-ep2" userLabel="Message Label">
+                                                            <rect key="frame" x="5" y="33.5" width="321" height="69.5"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="q7s-Uk-ep2" firstAttribute="leading" secondItem="Pm9-Ql-Net" secondAttribute="leading" constant="5" id="9X7-rI-Y8t"/>
+                                                        <constraint firstItem="ITV-ka-L0p" firstAttribute="leading" secondItem="Pm9-Ql-Net" secondAttribute="leading" constant="5" id="FBx-j5-edX"/>
+                                                        <constraint firstItem="ITV-ka-L0p" firstAttribute="top" secondItem="Pm9-Ql-Net" secondAttribute="top" constant="5" id="Rtm-Fj-kka"/>
+                                                        <constraint firstAttribute="bottom" secondItem="q7s-Uk-ep2" secondAttribute="bottom" constant="5" id="dw6-iP-Dcz"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ITV-ka-L0p" secondAttribute="trailing" constant="5" id="i42-Yx-MNq"/>
+                                                        <constraint firstAttribute="trailing" secondItem="q7s-Uk-ep2" secondAttribute="trailing" constant="5" id="iF2-vk-dUZ"/>
+                                                        <constraint firstItem="q7s-Uk-ep2" firstAttribute="top" secondItem="ITV-ka-L0p" secondAttribute="bottom" constant="5" id="rM9-zQ-BHL"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="messageLabel" destination="q7s-Uk-ep2" id="2qJ-8y-NvJ"/>
+                                                    <outlet property="titleLabel" destination="ITV-ka-L0p" id="Uyd-gx-3qa"/>
+                                                </connections>
+                                            </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TwoButtonsCustomAlertTableViewCell" rowHeight="44" id="VZ4-Z5-CHt" customClass="TwoButtonsCustomAlertTableViewCell">
-                                                <rect key="frame" x="0.0" y="28" width="331" height="44"/>
+                                                <rect key="frame" x="0.0" y="123" width="331" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VZ4-Z5-CHt" id="qpN-nq-WLj">
                                                     <rect key="frame" x="0.0" y="0.0" width="331" height="44"/>
@@ -129,7 +152,7 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SingleButtonCustomAlertTableViewCell" rowHeight="55" id="c7P-LM-3he" customClass="SingleButtonCustomAlertTableViewCell">
-                                                <rect key="frame" x="0.0" y="72" width="331" height="55"/>
+                                                <rect key="frame" x="0.0" y="167" width="331" height="55"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c7P-LM-3he" id="m6C-Le-oco">
                                                     <rect key="frame" x="0.0" y="0.0" width="331" height="55"/>
@@ -166,17 +189,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="ITV-ka-L0p" firstAttribute="leading" secondItem="Yfj-Jm-Ib1" secondAttribute="leading" constant="20" id="7Dg-Cy-pn6"/>
-                                    <constraint firstItem="q7s-Uk-ep2" firstAttribute="leading" secondItem="Yfj-Jm-Ib1" secondAttribute="leading" constant="20" id="8hz-ln-HOz"/>
-                                    <constraint firstItem="WaB-UR-dKK" firstAttribute="top" secondItem="q7s-Uk-ep2" secondAttribute="bottom" constant="5" id="Fnw-mh-7hM"/>
                                     <constraint firstAttribute="bottom" secondItem="WaB-UR-dKK" secondAttribute="bottom" constant="10" id="Guf-dn-o6U"/>
                                     <constraint firstItem="516-eA-qIa" firstAttribute="top" secondItem="Yfj-Jm-Ib1" secondAttribute="top" constant="20" id="KyR-Wc-msR"/>
                                     <constraint firstAttribute="trailing" secondItem="WaB-UR-dKK" secondAttribute="trailing" id="M2d-73-7kB"/>
+                                    <constraint firstItem="WaB-UR-dKK" firstAttribute="top" secondItem="516-eA-qIa" secondAttribute="bottom" constant="10" id="ZlT-Uu-Ypc"/>
                                     <constraint firstItem="516-eA-qIa" firstAttribute="centerX" secondItem="Yfj-Jm-Ib1" secondAttribute="centerX" id="bUt-59-FEl"/>
-                                    <constraint firstItem="q7s-Uk-ep2" firstAttribute="top" secondItem="ITV-ka-L0p" secondAttribute="bottom" constant="5" id="gIb-mY-dcO"/>
-                                    <constraint firstItem="ITV-ka-L0p" firstAttribute="top" secondItem="516-eA-qIa" secondAttribute="bottom" constant="5" id="hWr-bh-Enf"/>
-                                    <constraint firstAttribute="trailing" secondItem="ITV-ka-L0p" secondAttribute="trailing" constant="20" id="hrS-pm-RjK"/>
-                                    <constraint firstAttribute="trailing" secondItem="q7s-Uk-ep2" secondAttribute="trailing" constant="20" id="o3L-qq-Q4Z"/>
                                     <constraint firstItem="WaB-UR-dKK" firstAttribute="leading" secondItem="Yfj-Jm-Ib1" secondAttribute="leading" id="sYr-Rn-mY3"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -204,10 +221,8 @@
                     <connections>
                         <outlet property="alertViewContainer" destination="Yfj-Jm-Ib1" id="jBa-Be-lA7"/>
                         <outlet property="imageView" destination="516-eA-qIa" id="7Xv-mM-2eE"/>
-                        <outlet property="messageLabel" destination="q7s-Uk-ep2" id="Fmb-zY-uHA"/>
                         <outlet property="tableView" destination="WaB-UR-dKK" id="A1N-ql-nlI"/>
                         <outlet property="tableViewHeightConstraint" destination="UNI-DR-JhS" id="aSm-o9-s3s"/>
-                        <outlet property="titleLabel" destination="ITV-ka-L0p" id="Zui-Bf-PeZ"/>
                         <outlet property="visualEffectView" destination="wAT-Yj-th0" id="5bB-H9-awZ"/>
                     </connections>
                 </viewController>
