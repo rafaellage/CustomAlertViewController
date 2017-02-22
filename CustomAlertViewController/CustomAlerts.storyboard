@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,20 +26,20 @@
                         <viewControllerLayoutGuide type="bottom" id="wFa-JY-FQU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2bz-5G-1As">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wAT-Yj-th0">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NqR-4S-JH7">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RJc-SU-pyw">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="jCK-oc-F5s">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </view>
                                             <vibrancyEffect>
@@ -55,37 +51,37 @@
                                 <blurEffect style="dark"/>
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yfj-Jm-Ib1" userLabel="AlertView Container" customClass="RoundedBorderView">
-                                <rect key="frame" x="22" y="145" width="331" height="378"/>
+                                <rect key="frame" x="26" y="111" width="548" height="378"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="516-eA-qIa">
-                                        <rect key="frame" x="146" y="20" width="38" height="38"/>
+                                        <rect key="frame" x="255" y="20" width="38" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="AJb-EW-1ds"/>
                                             <constraint firstAttribute="width" constant="38" id="u0o-0I-gWQ"/>
                                         </constraints>
                                     </imageView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="117" sectionHeaderHeight="15" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="WaB-UR-dKK" userLabel="Content Table View">
-                                        <rect key="frame" x="0.0" y="68" width="331" height="300"/>
+                                        <rect key="frame" x="0.0" y="68" width="548" height="300"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="300" id="UNI-DR-JhS"/>
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CustomAlertSimpleBodyTableViewCell" rowHeight="108" id="YcQ-wu-m0O" userLabel="CustomAlertSimpleBodyTableViewCell" customClass="CustomAlertSimpleBodyTableViewCell">
-                                                <rect key="frame" x="0.0" y="15" width="331" height="108"/>
+                                                <rect key="frame" x="0.0" y="15" width="548" height="108"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YcQ-wu-m0O" id="Pm9-Ql-Net">
-                                                    <rect key="frame" x="0.0" y="0.0" width="331" height="108"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="548" height="108"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITV-ka-L0p" userLabel="Title Label">
-                                                            <rect key="frame" x="5" y="5" width="321" height="23.5"/>
+                                                            <rect key="frame" x="5" y="5" width="538" height="24"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Message Message Message Message Message Message Message Message Message Message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7s-Uk-ep2" userLabel="Message Label">
-                                                            <rect key="frame" x="5" y="33.5" width="321" height="69.5"/>
+                                                            <rect key="frame" x="5" y="34" width="538" height="69"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -107,14 +103,14 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TwoButtonsCustomAlertTableViewCell" rowHeight="44" id="VZ4-Z5-CHt" customClass="TwoButtonsCustomAlertTableViewCell">
-                                                <rect key="frame" x="0.0" y="123" width="331" height="44"/>
+                                                <rect key="frame" x="0.0" y="123" width="548" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VZ4-Z5-CHt" id="qpN-nq-WLj">
-                                                    <rect key="frame" x="0.0" y="0.0" width="331" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="548" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lB-2i-ofs">
-                                                            <rect key="frame" x="0.0" y="0.0" width="165.5" height="44"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="274" height="44"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                             <state key="normal" title="Left Button">
                                                                 <color key="titleColor" red="0.4823529412" green="0.050980392159999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -124,7 +120,7 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sB3-i5-dev">
-                                                            <rect key="frame" x="165" y="0.0" width="165.5" height="44"/>
+                                                            <rect key="frame" x="274" y="0.0" width="274" height="44"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                             <state key="normal" title="Right Button">
                                                                 <color key="titleColor" red="0.4823529412" green="0.050980392159999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -152,14 +148,14 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SingleButtonCustomAlertTableViewCell" rowHeight="55" id="c7P-LM-3he" customClass="SingleButtonCustomAlertTableViewCell">
-                                                <rect key="frame" x="0.0" y="167" width="331" height="55"/>
+                                                <rect key="frame" x="0.0" y="167" width="548" height="55"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c7P-LM-3he" id="m6C-Le-oco">
-                                                    <rect key="frame" x="0.0" y="0.0" width="331" height="55"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="548" height="55"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRD-0s-OOr">
-                                                            <rect key="frame" x="0.0" y="0.0" width="331" height="55"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="548" height="55"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                             <state key="normal" title="Single Button">
                                                                 <color key="titleColor" red="0.4823529412" green="0.050980392159999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

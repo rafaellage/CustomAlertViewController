@@ -27,7 +27,7 @@
 }
 
 - (void)customAlertWithTwoActions {
-    CustomAlertViewController *customAlert = [CustomAlertViewController alertControllerWithImage:[UIImage imageNamed:@"ic_alert_warning"] title:@"TESTE!" message:@"Message Message Message! YEY"];
+    CustomAlertViewController *customAlert = [CustomAlertViewController alertControllerWithImage:[UIImage imageNamed:@"ic_alert_warning"] title:@"TESTE!" message:@"Message Message Message! Message Message Message! Message Message Message! Message Message Message! Message Message Message! Message Message Message! YEY"];
     
     CustomAlertAction *action1 = [CustomAlertAction actionWithTitle:@"action1" handler:^(CustomAlertAction * _Nullable action) {
         NSLog(@"Action 1 Pressed");

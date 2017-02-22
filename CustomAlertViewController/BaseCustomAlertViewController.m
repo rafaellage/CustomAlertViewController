@@ -69,11 +69,12 @@ static const int kButtonsSection = 1;
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    [self configureTableViewHeightConstraint];
+//    [self configureTableViewHeightConstraint];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
+    [self configureTableViewHeightConstraint];
     [self animateIn];
 }
 
@@ -93,11 +94,22 @@ static const int kButtonsSection = 1;
     self.tableView.estimatedRowHeight = 44;
 }
 
+- (CGFloat)calculateBodySectionHeight {
+    long numberOfRowsInSection = [self.tableView numberOfRowsInSection:kBodySection];
+    CGFloat bodySectionHeight = 0.0;
+    for (int row = 0; row < numberOfRowsInSection; row++) {
+        CGFloat rowHeight = [self.tableView rectForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:kBodySection]].size.height;
+        bodySectionHeight += rowHeight;
+    }
+    return bodySectionHeight;
+}
+
 // TODO: Configure Based on The Body
 - (void)configureTableViewHeightConstraint {
-    CGFloat butonsSectionHeight = self.customBaseAlertViewModel.actions.count > 2 ? 44 * self.customBaseAlertViewModel.actions.count : 44;
-    CGFloat bodySectionHeight = [self.tableView rectForSection:kBodySection].size.height;
-    self.tableViewHeightConstraint.constant = butonsSectionHeight + bodySectionHeight;
+    CGFloat butonsSectionHeight = (self.customBaseAlertViewModel.actions.count > 2 ? 44 * self.customBaseAlertViewModel.actions.count : 44) + 10;
+    CGFloat bodySectionHeight = [self calculateBodySectionHeight]; //[self.tableView rectForSection:kBodySection].size.height;
+    CGFloat newHeight = butonsSectionHeight + bodySectionHeight;
+    self.tableViewHeightConstraint.constant = newHeight;
 }
 
 - (void)configureLayout {
