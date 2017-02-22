@@ -69,7 +69,6 @@ static const int kButtonsSection = 1;
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-//    [self configureTableViewHeightConstraint];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -104,10 +103,9 @@ static const int kButtonsSection = 1;
     return bodySectionHeight;
 }
 
-// TODO: Configure Based on The Body
 - (void)configureTableViewHeightConstraint {
-    CGFloat butonsSectionHeight = (self.customBaseAlertViewModel.actions.count > 2 ? 44 * self.customBaseAlertViewModel.actions.count : 44) + 10;
-    CGFloat bodySectionHeight = [self calculateBodySectionHeight]; //[self.tableView rectForSection:kBodySection].size.height;
+    CGFloat butonsSectionHeight = (self.customBaseAlertViewModel.actions.count > 2 ? 44 * self.customBaseAlertViewModel.actions.count : 44);// + 10;
+    CGFloat bodySectionHeight = [self calculateBodySectionHeight];
     CGFloat newHeight = butonsSectionHeight + bodySectionHeight;
     self.tableViewHeightConstraint.constant = newHeight;
 }
