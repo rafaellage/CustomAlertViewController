@@ -9,18 +9,21 @@
 #import "BaseCustomAlertViewController.h"
 #import "TwoButtonsCustomAlertTableViewCell.h"
 #import "SingleButtonCustomAlertTableViewCell.h"
+#import "CustomAlertSimpleBodyTableViewCell.h"
 #import "CustomBaseAlertViewModel.h"
 #import "RoundedBorderView.h"
 
 static NSString *kTwoButtonsCustomAlertTableViewCellReuseIdentifier = @"TwoButtonsCustomAlertTableViewCell";
 static NSString *kSingleButtonCustomAlertTableViewCellReuseIdentifier = @"SingleButtonCustomAlertTableViewCell";
+static NSString *kCustomAlertSimpleBodyTableViewCellReuseIdentifier = @"CustomAlertSimpleBodyTableViewCell";
+
+static const int kBodySection = 0;
+static const int kButtonsSection = 1;
 
 @interface BaseCustomAlertViewController() <UITableViewDataSource, UITableViewDelegate, SingleButtonCustomAlertTableViewCellDelegate, TwoButtonsCustomAlertTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet RoundedBorderView *alertViewContainer;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeightConstraint;
 @property (strong, nonatomic) CustomBaseAlertViewModel *customBaseAlertViewModel;
@@ -31,12 +34,23 @@ static NSString *kSingleButtonCustomAlertTableViewCellReuseIdentifier = @"Single
 
 @implementation BaseCustomAlertViewController
 
+#pragma mark - Intantiation
++ (instancetype)alertControllerWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message {
+    BaseCustomAlertViewController *baseCustomAlertViewController= [BaseCustomAlertViewController instantiateNew];
+    baseCustomAlertViewController.customBaseAlertViewModel = [CustomBaseAlertViewModel initWithImage:image title:title message:message];
+    return baseCustomAlertViewController;
+}
+
++ (instancetype)alertControllerWithImage:(UIImage *)image{
+    return nil;
+}
+
 #pragma mark - Getters and Setters
 - (NSArray<CustomAlertAction *>*)getActions{
     return self.customBaseAlertViewModel.actions;
 }
 
-#pragma mark - LifeCycle
+#pragma mark - View LifeCycle
 + (instancetype)instantiateNew {
     UIStoryboard *imageCaptureStoryboard = [UIStoryboard storyboardWithName:@"CustomAlerts" bundle:[NSBundle mainBundle]];
     BaseCustomAlertViewController *baseCustomAlertViewController = [imageCaptureStoryboard instantiateViewControllerWithIdentifier:@"BaseCustomAlert"];
@@ -79,25 +93,23 @@ static NSString *kSingleButtonCustomAlertTableViewCellReuseIdentifier = @"Single
     self.tableView.estimatedRowHeight = 44;
 }
 
+// TODO: Configure Based on The Body
 - (void)configureTableViewHeightConstraint {
-    CGFloat newHeight = self.customBaseAlertViewModel.actions.count > 2 ? 44 * self.customBaseAlertViewModel.actions.count : 44;
-    self.tableViewHeightConstraint.constant =  newHeight;
+    CGFloat butonsSectionHeight = self.customBaseAlertViewModel.actions.count > 2 ? 44 * self.customBaseAlertViewModel.actions.count : 44;
+    CGFloat bodySectionHeight = [self.tableView rectForSection:kBodySection].size.height;
+    self.tableViewHeightConstraint.constant = butonsSectionHeight + bodySectionHeight;
 }
 
 - (void)configureLayout {
     self.imageView.image = self.customBaseAlertViewModel.image;
-    self.titleLabel.text = self.customBaseAlertViewModel.title;
-    self.messageLabel.text = self.customBaseAlertViewModel.message;
-}
-
-+ (instancetype)alertControllerWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message {
-    BaseCustomAlertViewController *baseCustomAlertViewController= [BaseCustomAlertViewController instantiateNew];
-    baseCustomAlertViewController.customBaseAlertViewModel = [CustomBaseAlertViewModel initWithImage:image title:title message:message];
-    return baseCustomAlertViewController;
 }
 
 - (void)addAction:(CustomAlertAction *)action{
     [self.customBaseAlertViewModel addAction:action];
+}
+
+- (void)addBody:(CustomAlertBody *)body {
+    [self.customBaseAlertViewModel addBody:body];
 }
 
 - (void)configureWithDefaultAction {
@@ -167,16 +179,33 @@ static NSString *kSingleButtonCustomAlertTableViewCellReuseIdentifier = @"Single
 }
 
 #pragma mark - UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    if (self.customBaseAlertViewModel.actions == nil) {
-        [self configureWithDefaultAction];
-    }
-    
-    return self.customBaseAlertViewModel.actions.count > 2 ? self.customBaseAlertViewModel.actions.count : 1;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    switch (section) {
+        case kBodySection:
+            return self.customBaseAlertViewModel.bodyArray.count;
+        case kButtonsSection:
+            if (self.customBaseAlertViewModel.actions == nil) {
+                [self configureWithDefaultAction];
+            }
+            
+            return self.customBaseAlertViewModel.actions.count > 2 ? self.customBaseAlertViewModel.actions.count : 1;
+        default:
+            return 0;
+    }
+}
+
+- (UITableViewCell *)configureBodySectionForTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
+    CustomAlertSimpleBodyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCustomAlertSimpleBodyTableViewCellReuseIdentifier];
+    CustomAlertBody *body = self.customBaseAlertViewModel.bodyArray[indexPath.row];
+    [cell configureWithTitle:body.title message:body.message];
+    return cell;
+}
+
+- (UITableViewCell *)configureButtonsSectionForTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
     if (self.customBaseAlertViewModel.actions.count == 2) {
         TwoButtonsCustomAlertTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTwoButtonsCustomAlertTableViewCellReuseIdentifier];
         [self configureTwoButtonsForCell:cell];
@@ -189,8 +218,26 @@ static NSString *kSingleButtonCustomAlertTableViewCellReuseIdentifier = @"Single
     }
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case kBodySection:
+            return [self configureBodySectionForTableView:tableView atIndexPath:indexPath];
+        case kButtonsSection:
+            return [self configureButtonsSectionForTableView:tableView atIndexPath:indexPath];
+        default:
+            return [UITableViewCell new];
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
+    switch (indexPath.section) {
+        case kBodySection:
+            return UITableViewAutomaticDimension;
+        case kButtonsSection:
+            return 44;
+        default:
+            return UITableViewAutomaticDimension;
+    }
 }
 
 #pragma mark - SingleButtonCustomAlertTableViewCellDelegate

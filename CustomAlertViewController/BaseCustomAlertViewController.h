@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomAlertAction.h"
+#import "CustomAlertBody.h"
 
 @interface BaseCustomAlertViewController : UIViewController
 
 #pragma mark - Instantiation
++ (instancetype)alertControllerWithImage:(UIImage *)image;
 + (instancetype)alertControllerWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message;
 
 #pragma mark - Configuration
+- (void)addBody:(CustomAlertBody *)body;
 - (void)addAction:(CustomAlertAction *)action;
 - (NSArray<CustomAlertAction *>*)getActions;
 
