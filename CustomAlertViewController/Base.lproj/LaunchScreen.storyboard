@@ -1,27 +1,61 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OCb-5a-LZT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="EHf-IW-A2E">
+        <scene sceneID="rb1-jh-Lhg">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController id="OCb-5a-LZT" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
-                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                        <viewControllerLayoutGuide type="top" id="yMM-Pt-qcN"/>
+                        <viewControllerLayoutGuide type="bottom" id="QfZ-OF-smn"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" contentMode="scaleToFill" id="7xZ-Q3-QaD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CustomAlertViewControllerExample" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uQ7-CP-PDk">
+                                <rect key="frame" x="21" y="322" width="333" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3n-sS-D9s">
+                                <rect key="frame" x="21" y="633.5" width="333" height="13.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Bocato @2016">
+                                        <attributes>
+                                            <font key="NSFont" size="11" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="uQ7-CP-PDk" firstAttribute="centerX" secondItem="7xZ-Q3-QaD" secondAttribute="centerX" id="1q0-9G-le4"/>
+                            <constraint firstItem="QfZ-OF-smn" firstAttribute="top" secondItem="W3n-sS-D9s" secondAttribute="bottom" constant="20" id="33b-sm-0a6"/>
+                            <constraint firstItem="uQ7-CP-PDk" firstAttribute="leading" secondItem="7xZ-Q3-QaD" secondAttribute="leadingMargin" constant="5" id="Dbr-SJ-f0a"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="W3n-sS-D9s" secondAttribute="trailing" constant="5" id="KIR-Ug-gGx"/>
+                            <constraint firstItem="W3n-sS-D9s" firstAttribute="leading" secondItem="7xZ-Q3-QaD" secondAttribute="leadingMargin" constant="5" id="Td7-eU-olO"/>
+                            <constraint firstItem="uQ7-CP-PDk" firstAttribute="centerY" secondItem="7xZ-Q3-QaD" secondAttribute="centerY" id="VZa-0O-2fU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uQ7-CP-PDk" secondAttribute="trailing" constant="5" id="sOc-va-M4c"/>
+                        </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZC2-Ha-EwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="-100" y="334"/>
         </scene>
     </scenes>
 </document>

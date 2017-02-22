@@ -15,6 +15,16 @@
 		E5C3B27C1E5CFD5B009D633F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5C3B27A1E5CFD5B009D633F /* LaunchScreen.storyboard */; };
 		E5C3B2871E5CFD5B009D633F /* CustomAlertViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3B2861E5CFD5B009D633F /* CustomAlertViewControllerTests.m */; };
 		E5C3B2921E5CFD5B009D633F /* CustomAlertViewControllerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3B2911E5CFD5B009D633F /* CustomAlertViewControllerUITests.m */; };
+		E5C3B2A41E5CFDBB009D633F /* RoundedBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3B2A11E5CFDBB009D633F /* RoundedBorderView.m */; };
+		E5C3B2A51E5CFDBB009D633F /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3B2A31E5CFDBB009D633F /* UIColor+Extensions.m */; };
+		E5C3B2B91E5CFF90009D633F /* BaseCustomAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3B2AD1E5CFF90009D633F /* BaseCustomAlertViewController.m */; };
+		E5C3B2BA1E5CFF90009D633F /* CustomAlertAction.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3B2AF1E5CFF90009D633F /* CustomAlertAction.m */; };
+		E5C3B2BB1E5CFF90009D633F /* CustomAlerts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5C3B2B01E5CFF90009D633F /* CustomAlerts.storyboard */; };
+		E5C3B2BD1E5CFF90009D633F /* CustomBaseAlertViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3B2B41E5CFF90009D633F /* CustomBaseAlertViewModel.m */; };
+		E5C3B2BE1E5CFF90009D633F /* SingleButtonCustomAlertTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3B2B61E5CFF90009D633F /* SingleButtonCustomAlertTableViewCell.m */; };
+		E5C3B2BF1E5CFF90009D633F /* TwoButtonsPineAlertTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3B2B81E5CFF90009D633F /* TwoButtonsPineAlertTableViewCell.m */; };
+		E5C3B2C51E5D05F8009D633F /* CustomAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3B2C41E5D05F8009D633F /* CustomAlertViewController.m */; };
+		E5C3B2C81E5D307A009D633F /* RoundedBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3B2C71E5D307A009D633F /* RoundedBorderButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +61,25 @@
 		E5C3B28D1E5CFD5B009D633F /* CustomAlertViewControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomAlertViewControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5C3B2911E5CFD5B009D633F /* CustomAlertViewControllerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomAlertViewControllerUITests.m; sourceTree = "<group>"; };
 		E5C3B2931E5CFD5B009D633F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5C3B2A01E5CFDBB009D633F /* RoundedBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedBorderView.h; sourceTree = "<group>"; };
+		E5C3B2A11E5CFDBB009D633F /* RoundedBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedBorderView.m; sourceTree = "<group>"; };
+		E5C3B2A21E5CFDBB009D633F /* UIColor+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extensions.h"; sourceTree = "<group>"; };
+		E5C3B2A31E5CFDBB009D633F /* UIColor+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extensions.m"; sourceTree = "<group>"; };
+		E5C3B2AC1E5CFF90009D633F /* BaseCustomAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCustomAlertViewController.h; sourceTree = "<group>"; };
+		E5C3B2AD1E5CFF90009D633F /* BaseCustomAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BaseCustomAlertViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		E5C3B2AE1E5CFF90009D633F /* CustomAlertAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertAction.h; sourceTree = "<group>"; };
+		E5C3B2AF1E5CFF90009D633F /* CustomAlertAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertAction.m; sourceTree = "<group>"; };
+		E5C3B2B01E5CFF90009D633F /* CustomAlerts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CustomAlerts.storyboard; sourceTree = "<group>"; };
+		E5C3B2B31E5CFF90009D633F /* CustomBaseAlertViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBaseAlertViewModel.h; sourceTree = "<group>"; };
+		E5C3B2B41E5CFF90009D633F /* CustomBaseAlertViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBaseAlertViewModel.m; sourceTree = "<group>"; };
+		E5C3B2B51E5CFF90009D633F /* SingleButtonCustomAlertTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleButtonCustomAlertTableViewCell.h; sourceTree = "<group>"; };
+		E5C3B2B61E5CFF90009D633F /* SingleButtonCustomAlertTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleButtonCustomAlertTableViewCell.m; sourceTree = "<group>"; };
+		E5C3B2B71E5CFF90009D633F /* TwoButtonsCustomAlertTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoButtonsCustomAlertTableViewCell.h; sourceTree = "<group>"; };
+		E5C3B2B81E5CFF90009D633F /* TwoButtonsPineAlertTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoButtonsPineAlertTableViewCell.m; sourceTree = "<group>"; };
+		E5C3B2C31E5D05F8009D633F /* CustomAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertViewController.h; sourceTree = "<group>"; };
+		E5C3B2C41E5D05F8009D633F /* CustomAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertViewController.m; sourceTree = "<group>"; };
+		E5C3B2C61E5D307A009D633F /* RoundedBorderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedBorderButton.h; sourceTree = "<group>"; };
+		E5C3B2C71E5D307A009D633F /* RoundedBorderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedBorderButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +130,9 @@
 		E5C3B26B1E5CFD5B009D633F /* CustomAlertViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E5C3B26F1E5CFD5B009D633F /* AppDelegate.h */,
-				E5C3B2701E5CFD5B009D633F /* AppDelegate.m */,
-				E5C3B2721E5CFD5B009D633F /* ViewController.h */,
-				E5C3B2731E5CFD5B009D633F /* ViewController.m */,
-				E5C3B2751E5CFD5B009D633F /* Main.storyboard */,
-				E5C3B2781E5CFD5B009D633F /* Assets.xcassets */,
-				E5C3B27A1E5CFD5B009D633F /* LaunchScreen.storyboard */,
-				E5C3B27D1E5CFD5B009D633F /* Info.plist */,
+				E5C3B29F1E5CFD93009D633F /* Commons */,
+				E5C3B2A61E5CFDFD009D633F /* View */,
+				E5C3B2A71E5CFE0A009D633F /* Assets */,
 				E5C3B26C1E5CFD5B009D633F /* Supporting Files */,
 			);
 			path = CustomAlertViewController;
@@ -117,7 +141,10 @@
 		E5C3B26C1E5CFD5B009D633F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E5C3B26F1E5CFD5B009D633F /* AppDelegate.h */,
+				E5C3B2701E5CFD5B009D633F /* AppDelegate.m */,
 				E5C3B26D1E5CFD5B009D633F /* main.m */,
+				E5C3B27D1E5CFD5B009D633F /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -138,6 +165,75 @@
 				E5C3B2931E5CFD5B009D633F /* Info.plist */,
 			);
 			path = CustomAlertViewControllerUITests;
+			sourceTree = "<group>";
+		};
+		E5C3B29F1E5CFD93009D633F /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				E5C3B2C61E5D307A009D633F /* RoundedBorderButton.h */,
+				E5C3B2C71E5D307A009D633F /* RoundedBorderButton.m */,
+				E5C3B2A01E5CFDBB009D633F /* RoundedBorderView.h */,
+				E5C3B2A11E5CFDBB009D633F /* RoundedBorderView.m */,
+				E5C3B2A21E5CFDBB009D633F /* UIColor+Extensions.h */,
+				E5C3B2A31E5CFDBB009D633F /* UIColor+Extensions.m */,
+			);
+			name = Commons;
+			sourceTree = "<group>";
+		};
+		E5C3B2A61E5CFDFD009D633F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5C3B2AB1E5CFF66009D633F /* CustomAlert */,
+				E5C3B2AA1E5CFE59009D633F /* LaunchScreen */,
+				E5C3B2A91E5CFE49009D633F /* Main */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E5C3B2A71E5CFE0A009D633F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E5C3B2781E5CFD5B009D633F /* Assets.xcassets */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		E5C3B2A91E5CFE49009D633F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E5C3B2721E5CFD5B009D633F /* ViewController.h */,
+				E5C3B2731E5CFD5B009D633F /* ViewController.m */,
+				E5C3B2751E5CFD5B009D633F /* Main.storyboard */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		E5C3B2AA1E5CFE59009D633F /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E5C3B27A1E5CFD5B009D633F /* LaunchScreen.storyboard */,
+			);
+			name = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		E5C3B2AB1E5CFF66009D633F /* CustomAlert */ = {
+			isa = PBXGroup;
+			children = (
+				E5C3B2B01E5CFF90009D633F /* CustomAlerts.storyboard */,
+				E5C3B2AC1E5CFF90009D633F /* BaseCustomAlertViewController.h */,
+				E5C3B2AD1E5CFF90009D633F /* BaseCustomAlertViewController.m */,
+				E5C3B2AE1E5CFF90009D633F /* CustomAlertAction.h */,
+				E5C3B2AF1E5CFF90009D633F /* CustomAlertAction.m */,
+				E5C3B2B31E5CFF90009D633F /* CustomBaseAlertViewModel.h */,
+				E5C3B2B41E5CFF90009D633F /* CustomBaseAlertViewModel.m */,
+				E5C3B2B51E5CFF90009D633F /* SingleButtonCustomAlertTableViewCell.h */,
+				E5C3B2B61E5CFF90009D633F /* SingleButtonCustomAlertTableViewCell.m */,
+				E5C3B2B71E5CFF90009D633F /* TwoButtonsCustomAlertTableViewCell.h */,
+				E5C3B2B81E5CFF90009D633F /* TwoButtonsPineAlertTableViewCell.m */,
+				E5C3B2C31E5D05F8009D633F /* CustomAlertViewController.h */,
+				E5C3B2C41E5D05F8009D633F /* CustomAlertViewController.m */,
+			);
+			name = CustomAlert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +348,7 @@
 				E5C3B27C1E5CFD5B009D633F /* LaunchScreen.storyboard in Resources */,
 				E5C3B2791E5CFD5B009D633F /* Assets.xcassets in Resources */,
 				E5C3B2771E5CFD5B009D633F /* Main.storyboard in Resources */,
+				E5C3B2BB1E5CFF90009D633F /* CustomAlerts.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,9 +373,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5C3B2A41E5CFDBB009D633F /* RoundedBorderView.m in Sources */,
 				E5C3B2741E5CFD5B009D633F /* ViewController.m in Sources */,
+				E5C3B2B91E5CFF90009D633F /* BaseCustomAlertViewController.m in Sources */,
+				E5C3B2BA1E5CFF90009D633F /* CustomAlertAction.m in Sources */,
+				E5C3B2BF1E5CFF90009D633F /* TwoButtonsPineAlertTableViewCell.m in Sources */,
 				E5C3B2711E5CFD5B009D633F /* AppDelegate.m in Sources */,
+				E5C3B2C51E5D05F8009D633F /* CustomAlertViewController.m in Sources */,
+				E5C3B2C81E5D307A009D633F /* RoundedBorderButton.m in Sources */,
+				E5C3B2BD1E5CFF90009D633F /* CustomBaseAlertViewModel.m in Sources */,
 				E5C3B26E1E5CFD5B009D633F /* main.m in Sources */,
+				E5C3B2A51E5CFDBB009D633F /* UIColor+Extensions.m in Sources */,
+				E5C3B2BE1E5CFF90009D633F /* SingleButtonCustomAlertTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +622,7 @@
 				E5C3B2981E5CFD5B009D633F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E5C3B2991E5CFD5B009D633F /* Build configuration list for PBXNativeTarget "CustomAlertViewControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +631,7 @@
 				E5C3B29B1E5CFD5B009D633F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E5C3B29C1E5CFD5B009D633F /* Build configuration list for PBXNativeTarget "CustomAlertViewControllerUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +640,7 @@
 				E5C3B29E1E5CFD5B009D633F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
