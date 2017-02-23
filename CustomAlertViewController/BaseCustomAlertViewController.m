@@ -10,17 +10,24 @@
 #import "TwoButtonsCustomAlertTableViewCell.h"
 #import "SingleButtonCustomAlertTableViewCell.h"
 #import "CustomAlertSimpleBodyTableViewCell.h"
+#import "CustomAlertMaterialTextFieldTableViewCell.h"
 #import "CustomBaseAlertViewModel.h"
 #import "RoundedBorderView.h"
 
 static NSString *kTwoButtonsCustomAlertTableViewCellReuseIdentifier = @"TwoButtonsCustomAlertTableViewCell";
 static NSString *kSingleButtonCustomAlertTableViewCellReuseIdentifier = @"SingleButtonCustomAlertTableViewCell";
 static NSString *kCustomAlertSimpleBodyTableViewCellReuseIdentifier = @"CustomAlertSimpleBodyTableViewCell";
+static NSString *kCustomAlertMaterialTextFieldTableViewCellReuseIdentifier = @"CustomAlertMaterialTextFieldTableViewCell";
+
+
+static const CGFloat kDefaultTextfieldsSectionHeight = 44;
+static const CGFloat kDefaultButtonsSectionHeight = 44;
 
 static const int kBodySection = 0;
-static const int kButtonsSection = 1;
+static const int kTextFieldsSection = 1;
+static const int kButtonsSection = 2;
 
-@interface BaseCustomAlertViewController() <UITableViewDataSource, UITableViewDelegate, SingleButtonCustomAlertTableViewCellDelegate, TwoButtonsCustomAlertTableViewCellDelegate>
+@interface BaseCustomAlertViewController() <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, SingleButtonCustomAlertTableViewCellDelegate, TwoButtonsCustomAlertTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet RoundedBorderView *alertViewContainer;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -29,28 +36,42 @@ static const int kButtonsSection = 1;
 @property (strong, nonatomic) CustomBaseAlertViewModel *customBaseAlertViewModel;
 @property (weak, nonatomic) IBOutlet UIVisualEffectView *visualEffectView;
 @property (strong, nonatomic) UIVisualEffect *visualEffect;
+@property (strong, nonatomic) MAMaterialTextField *currentTextField;
 
 @end
 
 @implementation BaseCustomAlertViewController
 
 #pragma mark - Intantiation
++ (instancetype)alertControllerWithImage:(UIImage *)image {
+    BaseCustomAlertViewController *baseCustomAlertViewController = [BaseCustomAlertViewController instantiateNew];
+    baseCustomAlertViewController.customBaseAlertViewModel = [CustomBaseAlertViewModel initWithImage:image];
+    return baseCustomAlertViewController;
+}
+
 + (instancetype)alertControllerWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message {
     BaseCustomAlertViewController *baseCustomAlertViewController= [BaseCustomAlertViewController instantiateNew];
     baseCustomAlertViewController.customBaseAlertViewModel = [CustomBaseAlertViewModel initWithImage:image title:title message:message];
     return baseCustomAlertViewController;
 }
 
-+ (instancetype)alertControllerWithImage:(UIImage *)image{
-    return nil;
++ (instancetype)alertControllerWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message textField:(CustomAlertTextFieldModel *)textField {
+    BaseCustomAlertViewController *baseCustomAlertViewController= [BaseCustomAlertViewController instantiateNew];
+    baseCustomAlertViewController.customBaseAlertViewModel = [CustomBaseAlertViewModel initWithImage:image title:title message:message textField:textField];
+    return baseCustomAlertViewController;
 }
+
 
 #pragma mark - Getters and Setters
 - (NSArray<CustomAlertAction *>*)getActions{
     return self.customBaseAlertViewModel.actions;
 }
 
-#pragma mark - View LifeCycle
+- (NSArray<CustomAlertTextFieldModel *>*)getTextFieldModels {
+    return self.customBaseAlertViewModel.textFields;
+}
+
+#pragma mark - Instantiation
 + (instancetype)instantiateNew {
     UIStoryboard *imageCaptureStoryboard = [UIStoryboard storyboardWithName:@"CustomAlerts" bundle:[NSBundle mainBundle]];
     BaseCustomAlertViewController *baseCustomAlertViewController = [imageCaptureStoryboard instantiateViewControllerWithIdentifier:@"BaseCustomAlert"];
@@ -60,6 +81,7 @@ static const int kButtonsSection = 1;
     return baseCustomAlertViewController;
 }
 
+#pragma mark - View LifeCycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureVisualEffect];
@@ -67,18 +89,17 @@ static const int kButtonsSection = 1;
     [self configureLayout];
 }
 
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-}
-
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [self configureTableViewHeightConstraint];
+    [self updateTextFieldModels];
     [self animateIn];
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:YES];
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (self.currentTextField) {
+        [self.currentTextField endEditing:YES];
+    }
 }
 
 #pragma mark - Configuration
@@ -93,21 +114,29 @@ static const int kButtonsSection = 1;
     self.tableView.estimatedRowHeight = 44;
 }
 
-- (CGFloat)calculateBodySectionHeight {
-    long numberOfRowsInSection = [self.tableView numberOfRowsInSection:kBodySection];
-    CGFloat bodySectionHeight = 0.0;
+- (CGFloat)calculateSectionHeight:(int)section {
+    long numberOfRowsInSection = [self.tableView numberOfRowsInSection:section];
+    CGFloat sectionHeight = 0.0;
     for (int row = 0; row < numberOfRowsInSection; row++) {
-        CGFloat rowHeight = [self.tableView rectForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:kBodySection]].size.height;
-        bodySectionHeight += rowHeight;
+        CGFloat rowHeight = [self.tableView rectForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]].size.height;
+        sectionHeight += rowHeight;
     }
-    return bodySectionHeight;
+    return sectionHeight;
 }
 
 - (void)configureTableViewHeightConstraint {
-    CGFloat butonsSectionHeight = (self.customBaseAlertViewModel.actions.count > 2 ? 44 * self.customBaseAlertViewModel.actions.count : 44);// + 10;
-    CGFloat bodySectionHeight = [self calculateBodySectionHeight];
-    CGFloat newHeight = butonsSectionHeight + bodySectionHeight;
+    CGFloat textFieldsSectionHeight = self.customBaseAlertViewModel.textFields.count > 0 ? [self calculateSectionHeight:kTextFieldsSection] : 0;
+    CGFloat bodySectionHeight = self.customBaseAlertViewModel.bodyArray.count > 0 ? [self calculateSectionHeight:kBodySection] : 0;
+    CGFloat butonsSectionHeight = self.customBaseAlertViewModel.actions.count > 2 ? [self calculateSectionHeight:kButtonsSection] : kDefaultButtonsSectionHeight;
+    CGFloat newHeight = bodySectionHeight + textFieldsSectionHeight + butonsSectionHeight;
     self.tableViewHeightConstraint.constant = newHeight;
+}
+
+- (void)updateTextFieldModels {
+    for (int row = 0; row < self.customBaseAlertViewModel.textFields.count; row++) {
+        CustomAlertMaterialTextFieldTableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:kTextFieldsSection]];
+        self.customBaseAlertViewModel.textFields[row].textField = cell.textField;
+    }
 }
 
 - (void)configureLayout {
@@ -122,8 +151,11 @@ static const int kButtonsSection = 1;
     [self.customBaseAlertViewModel addBody:body];
 }
 
+- (void)addTextField:(CustomAlertTextFieldModel *)textField {
+    [self.customBaseAlertViewModel addTextField:textField];
+}
+
 - (void)configureWithDefaultAction {
-    
     CustomAlertAction *defaultAction = [CustomAlertAction actionWithTitle:@"OK" handler:^(CustomAlertAction *action) {
         [self hide];
     }];
@@ -190,18 +222,19 @@ static const int kButtonsSection = 1;
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case kBodySection:
             return self.customBaseAlertViewModel.bodyArray.count;
+        case kTextFieldsSection:
+            return self.customBaseAlertViewModel.textFields.count;
         case kButtonsSection:
             if (self.customBaseAlertViewModel.actions == nil) {
                 [self configureWithDefaultAction];
             }
-            
             return self.customBaseAlertViewModel.actions.count > 2 ? self.customBaseAlertViewModel.actions.count : 1;
         default:
             return 0;
@@ -212,6 +245,14 @@ static const int kButtonsSection = 1;
     CustomAlertSimpleBodyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCustomAlertSimpleBodyTableViewCellReuseIdentifier];
     CustomAlertBody *body = self.customBaseAlertViewModel.bodyArray[indexPath.row];
     [cell configureWithTitle:body.title message:body.message];
+    return cell;
+}
+
+- (UITableViewCell *)configureTextFieldSectionForTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
+    CustomAlertMaterialTextFieldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCustomAlertMaterialTextFieldTableViewCellReuseIdentifier];
+    CustomAlertTextFieldModel *textFieldModel = self.customBaseAlertViewModel.textFields[indexPath.row];
+    [cell configureWithTextFieldWithPlaceHolder:textFieldModel.placeHolder];
+    cell.textField.delegate = self;
     return cell;
 }
 
@@ -232,6 +273,8 @@ static const int kButtonsSection = 1;
     switch (indexPath.section) {
         case kBodySection:
             return [self configureBodySectionForTableView:tableView atIndexPath:indexPath];
+        case kTextFieldsSection:
+            return [self configureTextFieldSectionForTableView:tableView atIndexPath:indexPath];
         case kButtonsSection:
             return [self configureButtonsSectionForTableView:tableView atIndexPath:indexPath];
         default:
@@ -243,11 +286,12 @@ static const int kButtonsSection = 1;
     switch (indexPath.section) {
         case kBodySection:
             return UITableViewAutomaticDimension;
+        case kTextFieldsSection:
+            return kDefaultTextfieldsSectionHeight;
         case kButtonsSection:
-            return 44;
-        default:
-            return UITableViewAutomaticDimension;
+            return kDefaultButtonsSectionHeight;
     }
+    return UITableViewAutomaticDimension;
 }
 
 #pragma mark - SingleButtonCustomAlertTableViewCellDelegate
@@ -267,6 +311,16 @@ static const int kButtonsSection = 1;
 -(void)didClickRightButtonOnCustomAlert:(TwoButtonsCustomAlertTableViewCell *)cell{
     CustomAlertAction *rightButtonAction = self.customBaseAlertViewModel.actions.lastObject;
     rightButtonAction.handler(rightButtonAction);
+}
+
+#pragma mark - UITextViewDelegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.currentTextField = (MAMaterialTextField *) textField;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField endEditing:YES];
+    return true;
 }
 
 @end

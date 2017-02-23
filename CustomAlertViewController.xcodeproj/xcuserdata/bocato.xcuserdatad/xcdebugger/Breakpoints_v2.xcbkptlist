@@ -9,14 +9,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CustomAlertViewController/BaseCustomAlertViewController.m"
-            timestampString = "509496663.6734"
+            filePath = "CustomAlertViewController/CustomAlertTextFieldModel.m"
+            timestampString = "509554374.530028"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "-calculateBodySectionHeight"
-            landmarkType = "7">
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "@implementation CustomAlertTextFieldModel"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CustomAlertViewController/BaseCustomAlertViewController.m"
-            timestampString = "509496666.301393"
+            timestampString = "509555037.866404"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "-configureTableViewHeightConstraint"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "-touchesBegan:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

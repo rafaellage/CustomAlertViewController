@@ -24,21 +24,36 @@
     return customBaseAlertViewModel;
 }
 
-#pragma mark - Helpers
-- (void)addAction:(CustomAlertAction *)action{
-    if(self.actions == nil){
-        self.actions = [NSMutableArray<CustomAlertAction *> new];
-    }
-    
-    [self.actions addObject:action];
++ (instancetype)initWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message textField:(CustomAlertTextFieldModel *)textField{
+    CustomBaseAlertViewModel *customBaseAlertViewModel = [CustomBaseAlertViewModel new];
+    customBaseAlertViewModel.image = image;
+    [customBaseAlertViewModel addBody:[CustomAlertBody bodyWithTitle:title message:message]];
+    [customBaseAlertViewModel addTextField:textField];
+    return customBaseAlertViewModel;
 }
 
+
+#pragma mark - Helpers
 - (void)addBody:(CustomAlertBody *)body {
     if(self.bodyArray == nil){
         self.bodyArray = [NSMutableArray<CustomAlertBody *> new];
     }
-    
     [self.bodyArray addObject:body];
 }
+
+- (void)addTextField:(CustomAlertTextFieldModel *)textField {
+    if (self.textFields == nil) {
+        self.textFields = [NSMutableArray<CustomAlertTextFieldModel *> new];
+    }
+    [self.textFields addObject:textField];
+}
+
+- (void)addAction:(CustomAlertAction *)action{
+    if(self.actions == nil){
+        self.actions = [NSMutableArray<CustomAlertAction *> new];
+    }
+    [self.actions addObject:action];
+}
+
 
 @end
