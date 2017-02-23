@@ -10,15 +10,22 @@
 #import "TwoButtonsCustomAlertTableViewCell.h"
 #import "SingleButtonCustomAlertTableViewCell.h"
 #import "CustomAlertSimpleBodyTableViewCell.h"
+#import "CustomAlertMaterialTextFieldTableViewCell.h"
 #import "CustomBaseAlertViewModel.h"
 #import "RoundedBorderView.h"
 
 static NSString *kTwoButtonsCustomAlertTableViewCellReuseIdentifier = @"TwoButtonsCustomAlertTableViewCell";
 static NSString *kSingleButtonCustomAlertTableViewCellReuseIdentifier = @"SingleButtonCustomAlertTableViewCell";
 static NSString *kCustomAlertSimpleBodyTableViewCellReuseIdentifier = @"CustomAlertSimpleBodyTableViewCell";
+static NSString *kCustomAlertMaterialTextFieldTableViewCellReuseIdentifier = @"CustomAlertMaterialTextFieldTableViewCell";
+
+
+static const CGFloat kDefaultTextfieldsSectionHeight = 44;
+static const CGFloat kDefaultButtonsSectionHeight = 44;
 
 static const int kBodySection = 0;
-static const int kButtonsSection = 1;
+static const int kTextFieldsSection = 1;
+static const int kButtonsSection = 2;
 
 @interface BaseCustomAlertViewController() <UITableViewDataSource, UITableViewDelegate, SingleButtonCustomAlertTableViewCellDelegate, TwoButtonsCustomAlertTableViewCellDelegate>
 
@@ -35,19 +42,32 @@ static const int kButtonsSection = 1;
 @implementation BaseCustomAlertViewController
 
 #pragma mark - Intantiation
++ (instancetype)alertControllerWithImage:(UIImage *)image {
+    BaseCustomAlertViewController *baseCustomAlertViewController = [BaseCustomAlertViewController instantiateNew];
+    baseCustomAlertViewController.customBaseAlertViewModel = [CustomBaseAlertViewModel initWithImage:image];
+    return baseCustomAlertViewController;
+}
+
 + (instancetype)alertControllerWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message {
     BaseCustomAlertViewController *baseCustomAlertViewController= [BaseCustomAlertViewController instantiateNew];
     baseCustomAlertViewController.customBaseAlertViewModel = [CustomBaseAlertViewModel initWithImage:image title:title message:message];
     return baseCustomAlertViewController;
 }
 
-+ (instancetype)alertControllerWithImage:(UIImage *)image{
-    return nil;
++ (instancetype)alertControllerWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message textField:(MAMaterialTextField *)textField {
+    BaseCustomAlertViewController *baseCustomAlertViewController= [BaseCustomAlertViewController instantiateNew];
+    baseCustomAlertViewController.customBaseAlertViewModel = [CustomBaseAlertViewModel initWithImage:image title:title message:message textField:textField];
+    return baseCustomAlertViewController;
 }
+
 
 #pragma mark - Getters and Setters
 - (NSArray<CustomAlertAction *>*)getActions{
     return self.customBaseAlertViewModel.actions;
+}
+
+- (NSArray<MAMaterialTextField *>*)getTextFields {
+    return self.customBaseAlertViewModel.textFields;
 }
 
 #pragma mark - View LifeCycle
@@ -93,20 +113,21 @@ static const int kButtonsSection = 1;
     self.tableView.estimatedRowHeight = 44;
 }
 
-- (CGFloat)calculateBodySectionHeight {
-    long numberOfRowsInSection = [self.tableView numberOfRowsInSection:kBodySection];
-    CGFloat bodySectionHeight = 0.0;
+- (CGFloat)calculateSectionHeight:(int)section {
+    long numberOfRowsInSection = [self.tableView numberOfRowsInSection:section];
+    CGFloat sectionHeight = 0.0;
     for (int row = 0; row < numberOfRowsInSection; row++) {
-        CGFloat rowHeight = [self.tableView rectForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:kBodySection]].size.height;
-        bodySectionHeight += rowHeight;
+        CGFloat rowHeight = [self.tableView rectForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]].size.height;
+        sectionHeight += rowHeight;
     }
-    return bodySectionHeight;
+    return sectionHeight;
 }
 
 - (void)configureTableViewHeightConstraint {
-    CGFloat butonsSectionHeight = (self.customBaseAlertViewModel.actions.count > 2 ? 44 * self.customBaseAlertViewModel.actions.count : 44);// + 10;
-    CGFloat bodySectionHeight = [self calculateBodySectionHeight];
-    CGFloat newHeight = butonsSectionHeight + bodySectionHeight;
+    CGFloat textFieldsSectionHeight = self.customBaseAlertViewModel.textFields.count > 0 ? [self calculateSectionHeight:kTextFieldsSection] : 0;
+    CGFloat bodySectionHeight = self.customBaseAlertViewModel.bodyArray.count > 0 ? [self calculateSectionHeight:kBodySection] : 0;
+    CGFloat butonsSectionHeight = self.customBaseAlertViewModel.actions.count > 2 ? [self calculateSectionHeight:kButtonsSection] : kDefaultButtonsSectionHeight;
+    CGFloat newHeight = bodySectionHeight + textFieldsSectionHeight + butonsSectionHeight;
     self.tableViewHeightConstraint.constant = newHeight;
 }
 
@@ -120,6 +141,10 @@ static const int kButtonsSection = 1;
 
 - (void)addBody:(CustomAlertBody *)body {
     [self.customBaseAlertViewModel addBody:body];
+}
+
+- (void)addTextField:(MAMaterialTextField *)textField {
+    [self.customBaseAlertViewModel addTextField:textField];
 }
 
 - (void)configureWithDefaultAction {
@@ -190,18 +215,19 @@ static const int kButtonsSection = 1;
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case kBodySection:
             return self.customBaseAlertViewModel.bodyArray.count;
+        case kTextFieldsSection:
+            return self.customBaseAlertViewModel.textFields.count;
         case kButtonsSection:
             if (self.customBaseAlertViewModel.actions == nil) {
                 [self configureWithDefaultAction];
             }
-            
             return self.customBaseAlertViewModel.actions.count > 2 ? self.customBaseAlertViewModel.actions.count : 1;
         default:
             return 0;
@@ -212,6 +238,13 @@ static const int kButtonsSection = 1;
     CustomAlertSimpleBodyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCustomAlertSimpleBodyTableViewCellReuseIdentifier];
     CustomAlertBody *body = self.customBaseAlertViewModel.bodyArray[indexPath.row];
     [cell configureWithTitle:body.title message:body.message];
+    return cell;
+}
+
+- (UITableViewCell *)configureTextFieldSectionForTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
+    CustomAlertMaterialTextFieldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCustomAlertMaterialTextFieldTableViewCellReuseIdentifier];
+    MAMaterialTextField *textField = self.customBaseAlertViewModel.textFields[indexPath.row];
+    [cell configureWithTextField:textField];
     return cell;
 }
 
@@ -232,6 +265,8 @@ static const int kButtonsSection = 1;
     switch (indexPath.section) {
         case kBodySection:
             return [self configureBodySectionForTableView:tableView atIndexPath:indexPath];
+        case kTextFieldsSection:
+            return [self configureTextFieldSectionForTableView:tableView atIndexPath:indexPath];
         case kButtonsSection:
             return [self configureButtonsSectionForTableView:tableView atIndexPath:indexPath];
         default:
@@ -243,11 +278,12 @@ static const int kButtonsSection = 1;
     switch (indexPath.section) {
         case kBodySection:
             return UITableViewAutomaticDimension;
+        case kTextFieldsSection:
+            return kDefaultTextfieldsSectionHeight;
         case kButtonsSection:
-            return 44;
-        default:
-            return UITableViewAutomaticDimension;
+            return kDefaultButtonsSectionHeight;
     }
+    return UITableViewAutomaticDimension;
 }
 
 #pragma mark - SingleButtonCustomAlertTableViewCellDelegate
@@ -268,5 +304,7 @@ static const int kButtonsSection = 1;
     CustomAlertAction *rightButtonAction = self.customBaseAlertViewModel.actions.lastObject;
     rightButtonAction.handler(rightButtonAction);
 }
+
+- ()
 
 @end

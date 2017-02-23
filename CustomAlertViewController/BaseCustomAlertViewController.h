@@ -9,15 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "CustomAlertAction.h"
 #import "CustomAlertBody.h"
+#import "MAMaterialTextField.h"
 
 @interface BaseCustomAlertViewController : UIViewController
 
 #pragma mark - Instantiation
 + (instancetype)alertControllerWithImage:(UIImage *)image;
 + (instancetype)alertControllerWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message;
++ (instancetype)alertControllerWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message textField:(MAMaterialTextField *)textField;
 
 #pragma mark - Configuration
 - (void)addBody:(CustomAlertBody *)body;
+- (void)addTextField:(MAMaterialTextField *)textField;
+- (NSArray<MAMaterialTextField *>*)getTextFields;
 - (void)addAction:(CustomAlertAction *)action;
 - (NSArray<CustomAlertAction *>*)getActions;
 
