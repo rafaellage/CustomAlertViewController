@@ -79,25 +79,25 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITV-ka-L0p" userLabel="Title Label">
-                                                            <rect key="frame" x="5" y="5" width="321" height="24"/>
+                                                            <rect key="frame" x="10" y="5" width="311" height="24"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Message Message Message Message Message Message Message Message Message Message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7s-Uk-ep2" userLabel="Message Label">
-                                                            <rect key="frame" x="5" y="34" width="321" height="69"/>
+                                                            <rect key="frame" x="15" y="34" width="301" height="69"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="q7s-Uk-ep2" firstAttribute="leading" secondItem="Pm9-Ql-Net" secondAttribute="leading" constant="5" id="9X7-rI-Y8t"/>
-                                                        <constraint firstItem="ITV-ka-L0p" firstAttribute="leading" secondItem="Pm9-Ql-Net" secondAttribute="leading" constant="5" id="FBx-j5-edX"/>
+                                                        <constraint firstItem="q7s-Uk-ep2" firstAttribute="leading" secondItem="Pm9-Ql-Net" secondAttribute="leading" constant="15" id="9X7-rI-Y8t"/>
+                                                        <constraint firstItem="ITV-ka-L0p" firstAttribute="leading" secondItem="Pm9-Ql-Net" secondAttribute="leading" constant="10" id="FBx-j5-edX"/>
                                                         <constraint firstItem="ITV-ka-L0p" firstAttribute="top" secondItem="Pm9-Ql-Net" secondAttribute="top" constant="5" id="Rtm-Fj-kka"/>
                                                         <constraint firstAttribute="bottom" secondItem="q7s-Uk-ep2" secondAttribute="bottom" constant="5" id="dw6-iP-Dcz"/>
-                                                        <constraint firstAttribute="trailing" secondItem="ITV-ka-L0p" secondAttribute="trailing" constant="5" id="i42-Yx-MNq"/>
-                                                        <constraint firstAttribute="trailing" secondItem="q7s-Uk-ep2" secondAttribute="trailing" constant="5" id="iF2-vk-dUZ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ITV-ka-L0p" secondAttribute="trailing" constant="10" id="i42-Yx-MNq"/>
+                                                        <constraint firstAttribute="trailing" secondItem="q7s-Uk-ep2" secondAttribute="trailing" constant="15" id="iF2-vk-dUZ"/>
                                                         <constraint firstItem="q7s-Uk-ep2" firstAttribute="top" secondItem="ITV-ka-L0p" secondAttribute="bottom" constant="5" id="rM9-zQ-BHL"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
