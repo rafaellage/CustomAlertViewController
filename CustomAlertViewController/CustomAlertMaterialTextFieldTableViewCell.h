@@ -12,9 +12,9 @@
 @interface CustomAlertMaterialTextFieldTableViewCell : UITableViewCell
 
 #pragma mark - Properties
-@property (weak, nonatomic) IBOutlet MAMaterialTextField *textField;
+@property (strong, nonatomic) IBOutlet MAMaterialTextField *textField;
 
 #pragma mark - Configuration
-- (void)configureWithTextField:(MAMaterialTextField *)textField;
+- (void)configureWithTextFieldWithPlaceHolder:(NSString *)placeholder;
 
 @end

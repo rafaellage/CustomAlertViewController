@@ -16,8 +16,8 @@
 }
 
 #pragma mark - Configuration
-- (void)configureWithTextField:(MAMaterialTextField *)textField {
-    self.textField = textField;
+- (void)configureWithTextFieldWithPlaceHolder:(NSString *)placeholder {
+    self.textField.placeholder = placeholder;
     [self layoutSubviews];
 }
 

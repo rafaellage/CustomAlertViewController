@@ -24,7 +24,7 @@
     return customBaseAlertViewModel;
 }
 
-+ (instancetype)initWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message textField:(MAMaterialTextField *)textField{
++ (instancetype)initWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message textField:(CustomAlertTextFieldModel *)textField{
     CustomBaseAlertViewModel *customBaseAlertViewModel = [CustomBaseAlertViewModel new];
     customBaseAlertViewModel.image = image;
     [customBaseAlertViewModel addBody:[CustomAlertBody bodyWithTitle:title message:message]];
@@ -41,9 +41,9 @@
     [self.bodyArray addObject:body];
 }
 
-- (void)addTextField:(MAMaterialTextField *)textField {
+- (void)addTextField:(CustomAlertTextFieldModel *)textField {
     if (self.textFields == nil) {
-        self.textFields = [NSMutableArray<MAMaterialTextField *> new];
+        self.textFields = [NSMutableArray<CustomAlertTextFieldModel *> new];
     }
     [self.textFields addObject:textField];
 }

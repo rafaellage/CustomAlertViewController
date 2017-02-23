@@ -27,7 +27,7 @@ static const int kBodySection = 0;
 static const int kTextFieldsSection = 1;
 static const int kButtonsSection = 2;
 
-@interface BaseCustomAlertViewController() <UITableViewDataSource, UITableViewDelegate, SingleButtonCustomAlertTableViewCellDelegate, TwoButtonsCustomAlertTableViewCellDelegate>
+@interface BaseCustomAlertViewController() <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, SingleButtonCustomAlertTableViewCellDelegate, TwoButtonsCustomAlertTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet RoundedBorderView *alertViewContainer;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -36,6 +36,7 @@ static const int kButtonsSection = 2;
 @property (strong, nonatomic) CustomBaseAlertViewModel *customBaseAlertViewModel;
 @property (weak, nonatomic) IBOutlet UIVisualEffectView *visualEffectView;
 @property (strong, nonatomic) UIVisualEffect *visualEffect;
+@property (strong, nonatomic) MAMaterialTextField *currentTextField;
 
 @end
 
@@ -54,7 +55,7 @@ static const int kButtonsSection = 2;
     return baseCustomAlertViewController;
 }
 
-+ (instancetype)alertControllerWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message textField:(MAMaterialTextField *)textField {
++ (instancetype)alertControllerWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message textField:(CustomAlertTextFieldModel *)textField {
     BaseCustomAlertViewController *baseCustomAlertViewController= [BaseCustomAlertViewController instantiateNew];
     baseCustomAlertViewController.customBaseAlertViewModel = [CustomBaseAlertViewModel initWithImage:image title:title message:message textField:textField];
     return baseCustomAlertViewController;
@@ -66,11 +67,11 @@ static const int kButtonsSection = 2;
     return self.customBaseAlertViewModel.actions;
 }
 
-- (NSArray<MAMaterialTextField *>*)getTextFields {
+- (NSArray<CustomAlertTextFieldModel *>*)getTextFieldModels {
     return self.customBaseAlertViewModel.textFields;
 }
 
-#pragma mark - View LifeCycle
+#pragma mark - Instantiation
 + (instancetype)instantiateNew {
     UIStoryboard *imageCaptureStoryboard = [UIStoryboard storyboardWithName:@"CustomAlerts" bundle:[NSBundle mainBundle]];
     BaseCustomAlertViewController *baseCustomAlertViewController = [imageCaptureStoryboard instantiateViewControllerWithIdentifier:@"BaseCustomAlert"];
@@ -80,6 +81,7 @@ static const int kButtonsSection = 2;
     return baseCustomAlertViewController;
 }
 
+#pragma mark - View LifeCycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureVisualEffect];
@@ -87,18 +89,17 @@ static const int kButtonsSection = 2;
     [self configureLayout];
 }
 
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-}
-
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [self configureTableViewHeightConstraint];
+    [self updateTextFieldModels];
     [self animateIn];
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:YES];
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (self.currentTextField) {
+        [self.currentTextField endEditing:YES];
+    }
 }
 
 #pragma mark - Configuration
@@ -131,6 +132,13 @@ static const int kButtonsSection = 2;
     self.tableViewHeightConstraint.constant = newHeight;
 }
 
+- (void)updateTextFieldModels {
+    for (int row = 0; row < self.customBaseAlertViewModel.textFields.count; row++) {
+        CustomAlertMaterialTextFieldTableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:kTextFieldsSection]];
+        self.customBaseAlertViewModel.textFields[row].textField = cell.textField;
+    }
+}
+
 - (void)configureLayout {
     self.imageView.image = self.customBaseAlertViewModel.image;
 }
@@ -143,12 +151,11 @@ static const int kButtonsSection = 2;
     [self.customBaseAlertViewModel addBody:body];
 }
 
-- (void)addTextField:(MAMaterialTextField *)textField {
+- (void)addTextField:(CustomAlertTextFieldModel *)textField {
     [self.customBaseAlertViewModel addTextField:textField];
 }
 
 - (void)configureWithDefaultAction {
-    
     CustomAlertAction *defaultAction = [CustomAlertAction actionWithTitle:@"OK" handler:^(CustomAlertAction *action) {
         [self hide];
     }];
@@ -243,8 +250,9 @@ static const int kButtonsSection = 2;
 
 - (UITableViewCell *)configureTextFieldSectionForTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath {
     CustomAlertMaterialTextFieldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCustomAlertMaterialTextFieldTableViewCellReuseIdentifier];
-    MAMaterialTextField *textField = self.customBaseAlertViewModel.textFields[indexPath.row];
-    [cell configureWithTextField:textField];
+    CustomAlertTextFieldModel *textFieldModel = self.customBaseAlertViewModel.textFields[indexPath.row];
+    [cell configureWithTextFieldWithPlaceHolder:textFieldModel.placeHolder];
+    cell.textField.delegate = self;
     return cell;
 }
 
@@ -305,6 +313,14 @@ static const int kButtonsSection = 2;
     rightButtonAction.handler(rightButtonAction);
 }
 
-- ()
+#pragma mark - UITextViewDelegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.currentTextField = (MAMaterialTextField *) textField;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField endEditing:YES];
+    return true;
+}
 
 @end

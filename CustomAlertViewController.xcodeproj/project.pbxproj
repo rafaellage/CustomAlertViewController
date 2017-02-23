@@ -42,6 +42,7 @@
 		E5C3B2EF1E5DB5B7009D633F /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C3B2E21E5DB5B7009D633F /* Roboto-ThinItalic.ttf */; };
 		E5C3B3161E5F1510009D633F /* MAMaterialTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3B3151E5F1510009D633F /* MAMaterialTextField.m */; };
 		E5C3B3191E5F1A7F009D633F /* CustomAlertMaterialTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3B3181E5F1A7F009D633F /* CustomAlertMaterialTextFieldTableViewCell.m */; };
+		E5C3B31F1E5F2975009D633F /* CustomAlertTextFieldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3B31E1E5F2975009D633F /* CustomAlertTextFieldModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,8 @@
 		E5C3B3151E5F1510009D633F /* MAMaterialTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAMaterialTextField.m; sourceTree = "<group>"; };
 		E5C3B3171E5F1A7F009D633F /* CustomAlertMaterialTextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertMaterialTextFieldTableViewCell.h; sourceTree = "<group>"; };
 		E5C3B3181E5F1A7F009D633F /* CustomAlertMaterialTextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertMaterialTextFieldTableViewCell.m; sourceTree = "<group>"; };
+		E5C3B31D1E5F2975009D633F /* CustomAlertTextFieldModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertTextFieldModel.h; sourceTree = "<group>"; };
+		E5C3B31E1E5F2975009D633F /* CustomAlertTextFieldModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertTextFieldModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +300,8 @@
 				E5C3B2B41E5CFF90009D633F /* CustomBaseAlertViewModel.m */,
 				E5C3B2CE1E5D95F4009D633F /* CustomAlertBody.h */,
 				E5C3B2CF1E5D95F4009D633F /* CustomAlertBody.m */,
+				E5C3B31D1E5F2975009D633F /* CustomAlertTextFieldModel.h */,
+				E5C3B31E1E5F2975009D633F /* CustomAlertTextFieldModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -511,6 +516,7 @@
 				E5C3B2711E5CFD5B009D633F /* AppDelegate.m in Sources */,
 				E5C3B2C51E5D05F8009D633F /* CustomAlertViewController.m in Sources */,
 				E5C3B3161E5F1510009D633F /* MAMaterialTextField.m in Sources */,
+				E5C3B31F1E5F2975009D633F /* CustomAlertTextFieldModel.m in Sources */,
 				E5C3B2C81E5D307A009D633F /* RoundedBorderButton.m in Sources */,
 				E5C3B2D01E5D95F4009D633F /* CustomAlertBody.m in Sources */,
 				E5C3B2BD1E5CFF90009D633F /* CustomBaseAlertViewModel.m in Sources */,

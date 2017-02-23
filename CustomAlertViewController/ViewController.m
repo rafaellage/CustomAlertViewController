@@ -11,6 +11,7 @@
 #import "CustomAlertAction.h"
 #import "CustomAlertBody.h"
 #import "MAMaterialTextField.h"
+#import "CustomAlertTextFieldModel.h"
 
 @interface ViewController ()
 
@@ -81,14 +82,38 @@
 }
 
 - (void)customAlertWithSingleTextField {
-    
-    MAMaterialTextField *textField = [MAMaterialTextField new];
-    textField.placeholder = @"PlaceHolder";
-    
-    CustomAlertViewController *customAlert = [CustomAlertViewController alertControllerWithImage:[UIImage imageNamed:@"ic_alert_warning"] title:@"TEXTFIELD TEST!" message:@"Message Message Message! YEY" textField:textField];
+    CustomAlertViewController *customAlert = [CustomAlertViewController alertControllerWithImage:[UIImage imageNamed:@"ic_alert_warning"] title:@"TEXTFIELD TEST!" message:@"Message Message Message! YEY" textField:[CustomAlertTextFieldModel initWithPlaceHolder:@"Placeholder"]];
     
     CustomAlertAction *action1 = [CustomAlertAction actionWithTitle:@"TextField Content" handler:^(CustomAlertAction * _Nullable action) {
-        NSLog(@"TextField Content: %@", customAlert.getTextFields[0].text);
+        MAMaterialTextField *textField = customAlert.getTextFieldModels[0].textField;
+        NSLog(@"TextField Content: %@", textField.text);
+        [customAlert hide];
+    }];
+    [customAlert addAction:action1];
+    
+    CustomAlertAction *action2 = [CustomAlertAction actionWithTitle:@"Dismiss" handler:^(CustomAlertAction * _Nullable action) {
+        NSLog(@"Action 2 Pressed");
+        [customAlert hide];
+    }];
+    [customAlert addAction:action2];
+    
+    [customAlert showInViewController:self];
+}
+
+- (void)customAlertWithTwoOrMoreTextFields {
+    CustomAlertViewController *customAlert = [CustomAlertViewController alertControllerWithImage:[UIImage imageNamed:@"ic_alert_warning"] title:@"TEXTFIELD TEST!" message:@"Message Message Message! YEY!"];
+    
+    CustomAlertTextFieldModel *textFieldModel1 = [CustomAlertTextFieldModel initWithPlaceHolder:@"PlaceHolder 1"];
+    [customAlert addTextField:textFieldModel1];
+    CustomAlertTextFieldModel *textFieldModel2 = [CustomAlertTextFieldModel initWithPlaceHolder:@"PlaceHolder 2"];
+    [customAlert addTextField:textFieldModel2];
+    
+    CustomAlertAction *action1 = [CustomAlertAction actionWithTitle:@"TextField Content" handler:^(CustomAlertAction * _Nullable action) {
+        MAMaterialTextField *textField1 = customAlert.getTextFieldModels[0].textField;
+        NSLog(@"TextField 1 Content: %@", textField1.text);
+        MAMaterialTextField *textField2 = customAlert.getTextFieldModels[1].textField;
+        NSLog(@"TextField 2 Content: %@", textField2.text);
+        
         [customAlert hide];
     }];
     [customAlert addAction:action1];
@@ -124,6 +149,7 @@
 }
 
 - (IBAction)twoOrMoreFieldsTouchUpInside:(id)sender {
+    [self customAlertWithTwoOrMoreTextFields];
 }
 
 @end
