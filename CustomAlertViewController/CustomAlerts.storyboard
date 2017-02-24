@@ -64,7 +64,7 @@
                                             <constraint firstAttribute="width" constant="38" id="u0o-0I-gWQ"/>
                                         </constraints>
                                     </imageView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="117" sectionHeaderHeight="15" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="WaB-UR-dKK" userLabel="Content Table View">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="117" sectionHeaderHeight="15" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="WaB-UR-dKK" userLabel="Content Table View">
                                         <rect key="frame" x="0.0" y="68" width="331" height="300"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -113,11 +113,16 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="331" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sc2-4g-5mE" customClass="MAMaterialTextField">
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Sc2-4g-5mE" customClass="MAMaterialTextField">
                                                             <rect key="frame" x="30" y="5" width="271" height="34"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="defaultColor">
+                                                                    <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </textField>
                                                     </subviews>
                                                     <constraints>
