@@ -198,8 +198,9 @@ static const int kButtonsSection = 2;
         self.visualEffectView.effect = nil;
     } completion:^(BOOL finished) {
         if (finished) {
-            [self.view removeFromSuperview];
-            [self dismissViewControllerAnimated:NO completion:nil];
+            [self dismissViewControllerAnimated:NO completion:^{
+                [self.view removeFromSuperview];
+            }];
         }
     }];
 }
